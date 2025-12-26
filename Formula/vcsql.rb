@@ -1,25 +1,25 @@
-class Ccql < Formula
-  desc "Claude Code Query Language - SQL query engine for Claude Code data"
+class Vcsql < Formula
+  desc "SQL query engine for Git repository data"
   homepage "https://github.com/douglance/devsql"
   version "0.1.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-aarch64-apple-darwin.tar.xz"
-      sha256 "92b48a1d36d2d4fc33b6eeb3dc3789611795e80823db0bf1a9fae20c3e4312a1"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/vcsql-aarch64-apple-darwin.tar.xz"
+      sha256 "28e4eb334ad7e707e79f128c6abe00a0bca5af36e6368b970f1dc9b8ffaa94ad"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-x86_64-apple-darwin.tar.xz"
-      sha256 "bcb968fa44f07451433f431b8adf57d2ade105f1110b3003baa488749057d4c8"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/vcsql-x86_64-apple-darwin.tar.xz"
+      sha256 "031c832034fcfd18754328631b96bcc181f864b940d6f8502440c101e4eec549"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "5180f9e32e2378225e72007cb558c0f554f6f43fe24a5c575646f6e51df151e9"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/vcsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "987813446d0c712c6fc0067420a07523844d550192ecf121515e21fdaf9b38cd"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "f3a49aed7481d246d27d3b7d39ad67f769b0f7508d17bb4ae76e8f86db50cc8c"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/vcsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "6cd631df0a162d916b16aa37842c1b0eaadb3e47b694ce29035a307191d9562d"
     end
   end
   license "MIT"
@@ -48,16 +48,16 @@ class Ccql < Formula
 
   def install
     if OS.mac? && Hardware::CPU.arm?
-      bin.install "ccql"
+      bin.install "vcsql"
     end
     if OS.mac? && Hardware::CPU.intel?
-      bin.install "ccql"
+      bin.install "vcsql"
     end
     if OS.linux? && Hardware::CPU.arm?
-      bin.install "ccql"
+      bin.install "vcsql"
     end
     if OS.linux? && Hardware::CPU.intel?
-      bin.install "ccql"
+      bin.install "vcsql"
     end
 
     install_binary_aliases!

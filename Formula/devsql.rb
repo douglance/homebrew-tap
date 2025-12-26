@@ -1,25 +1,25 @@
-class Ccql < Formula
-  desc "Claude Code Query Language - SQL query engine for Claude Code data"
+class Devsql < Formula
+  desc "Unified SQL queries across Claude Code + Git data"
   homepage "https://github.com/douglance/devsql"
   version "0.1.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-aarch64-apple-darwin.tar.xz"
-      sha256 "92b48a1d36d2d4fc33b6eeb3dc3789611795e80823db0bf1a9fae20c3e4312a1"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/devsql-aarch64-apple-darwin.tar.xz"
+      sha256 "26f8fad9ebae82f60788512f19776cb02a77916c15b2a4382b0be25accd4aa02"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-x86_64-apple-darwin.tar.xz"
-      sha256 "bcb968fa44f07451433f431b8adf57d2ade105f1110b3003baa488749057d4c8"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/devsql-x86_64-apple-darwin.tar.xz"
+      sha256 "16fbd6acc350744d071dfb15ad5d6bbf6d8f96af980752bfe392fa29c2d611f5"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "5180f9e32e2378225e72007cb558c0f554f6f43fe24a5c575646f6e51df151e9"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/devsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "9cd67b536eb484d7634f269669ab8c1e54ea1eaf8ba6aa3234a30a653fdfaa56"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.1.2/ccql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "f3a49aed7481d246d27d3b7d39ad67f769b0f7508d17bb4ae76e8f86db50cc8c"
+      url "https://github.com/douglance/devsql/releases/download/v0.1.2/devsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "587f4d38bf99c4299683fd6026e3e359a6163a2b2464b51e1562071033987c12"
     end
   end
   license "MIT"
@@ -48,16 +48,16 @@ class Ccql < Formula
 
   def install
     if OS.mac? && Hardware::CPU.arm?
-      bin.install "ccql"
+      bin.install "devsql"
     end
     if OS.mac? && Hardware::CPU.intel?
-      bin.install "ccql"
+      bin.install "devsql"
     end
     if OS.linux? && Hardware::CPU.arm?
-      bin.install "ccql"
+      bin.install "devsql"
     end
     if OS.linux? && Hardware::CPU.intel?
-      bin.install "ccql"
+      bin.install "devsql"
     end
 
     install_binary_aliases!
