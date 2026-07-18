@@ -1,44 +1,33 @@
 class Nib < Formula
   desc "Screenshot annotation tool for AI-human visual collaboration"
   homepage "https://github.com/douglance/nib"
-  version "0.1.0"
-  if OS.mac?
-    if Hardware::CPU.arm?
-      url "https://github.com/douglance/nib/releases/download/v0.1.0/nib-aarch64-apple-darwin.tar.xz"
-      sha256 "eb41b6254a6780f6a9b58e3135e174579fc32bb51624005efcc7a515eaad568c"
-    end
-  end
+  version "0.2.3"
   license "MIT"
 
-  BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
-  }
+  on_macos do
+    on_arm do
+      url "https://github.com/douglance/nib/releases/download/v0.2.3/nib-macos-aarch64.tar.gz"
+      sha256 "274c716165a551ff26c427c06944b12ddbc30dab9c8840ba71b1ebdfd7537eb7"
+    end
 
-  def target_triple
-    cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
-    os = OS.mac? ? "apple-darwin" : "unknown-linux-gnu"
-
-    "#{cpu}-#{os}"
+    on_intel do
+      url "https://github.com/douglance/nib/releases/download/v0.2.3/nib-macos-x86_64.tar.gz"
+      sha256 "e52b4c2a4c42c2d9fc176616631c75ddfff729abd3799c8185c232671ec1f140"
+    end
   end
 
-  def install_binary_aliases!
-    BINARY_ALIASES[target_triple.to_sym].each do |source, dests|
-      dests.each do |dest|
-        bin.install_symlink bin/source.to_s => dest
-      end
+  on_linux do
+    on_intel do
+      url "https://github.com/douglance/nib/releases/download/v0.2.3/nib-linux-x86_64.tar.gz"
+      sha256 "eec6812434671e96af18b21e04fe5082db86005e82743e258b06f0f45ad1c6f2"
     end
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "nib"
-    end
+    bin.install "nib"
+  end
 
-    install_binary_aliases!
-
-    doc_files = Dir["README.*", "readme.*", "LICENSE", "LICENSE.*", "CHANGELOG.*"]
-    leftover_contents = Dir["*"] - doc_files
-
-    pkgshare.install(*leftover_contents) unless leftover_contents.empty?
+  test do
+    assert_match version.to_s, shell_output("#{bin}/nib --version")
   end
 end
