@@ -1,4 +1,5 @@
 class Vcsql < Formula
+  # Reconciled by the v0.3.2 release workflow.
   desc "SQL query engine for Git repository data"
   homepage "https://github.com/douglance/devsql"
   version "0.3.2"

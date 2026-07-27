@@ -1,4 +1,5 @@
 class Ccql < Formula
+  # Reconciled by the v0.3.2 release workflow.
   desc "Claude Code Query Language - SQL query engine for Claude Code data"
   homepage "https://github.com/douglance/devsql"
   version "0.3.2"

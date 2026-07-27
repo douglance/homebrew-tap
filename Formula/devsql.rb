@@ -1,4 +1,5 @@
 class Devsql < Formula
+  # Reconciled by the v0.3.2 release workflow.
   desc "Unified SQL queries across Claude Code + Git data"
   homepage "https://github.com/douglance/devsql"
   version "0.3.2"
