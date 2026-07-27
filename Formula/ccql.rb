@@ -1,35 +1,35 @@
 class Ccql < Formula
   desc "Claude Code Query Language - SQL query engine for Claude Code data"
   homepage "https://github.com/douglance/devsql"
-  version "0.3.0"
+  version "0.3.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/ccql-aarch64-apple-darwin.tar.xz"
-      sha256 "ffa4f369303689d947fe6fa38a33bd5bfbf700685e5798e4a99f633483dcd8a5"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/ccql-aarch64-apple-darwin.tar.xz"
+      sha256 "fb51d384cdcdd11dcc52b7095e61ac7eee8eaa4bef6f96494d0a9401d2c2f21a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/ccql-x86_64-apple-darwin.tar.xz"
-      sha256 "305d72bba0d7df8c7f695e22f4f210549088e25278ac52107cfb985d0ab9646d"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/ccql-x86_64-apple-darwin.tar.xz"
+      sha256 "d9a60df27bdd149af34d470f6a9618a715e560160e921656d8f599fbef15b670"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/ccql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "6b776f0e2262cb968b9ae502f7f0ce539db63fbb67560d7fc1cc02469eab0852"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/ccql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "203c5131d73b240eaf79bd139c3c8204ac9c37eb3b57e3cbbec15da10594846f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/ccql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "0ddfb22371918b937991bc0de69aa73503991ff296a7e19b23562bf83bbe2b07"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/ccql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "15a8045597c04c94a95b08e28fbd0ec4b2353b62318c3511499f5121f5e170c4"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,18 +47,10 @@ class Ccql < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "ccql"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "ccql"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "ccql"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "ccql"
-    end
+    bin.install "ccql" if OS.mac? && Hardware::CPU.arm?
+    bin.install "ccql" if OS.mac? && Hardware::CPU.intel?
+    bin.install "ccql" if OS.linux? && Hardware::CPU.arm?
+    bin.install "ccql" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 

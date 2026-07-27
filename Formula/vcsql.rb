@@ -1,35 +1,35 @@
 class Vcsql < Formula
   desc "SQL query engine for Git repository data"
   homepage "https://github.com/douglance/devsql"
-  version "0.3.0"
+  version "0.3.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/vcsql-aarch64-apple-darwin.tar.xz"
-      sha256 "16a37b42b52c9da31abc9a3513758699dd99198e7c6291f4cb4dd4d133283a57"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/vcsql-aarch64-apple-darwin.tar.xz"
+      sha256 "36dd271296836f74986a36cae9126feb85c62aad7a63bf6c3a2c5b484654e494"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/vcsql-x86_64-apple-darwin.tar.xz"
-      sha256 "89749ccb62feec671c28dbaa277a5cadd981c5234d0c7c3455fd030685bfe94c"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/vcsql-x86_64-apple-darwin.tar.xz"
+      sha256 "4d277b5a144ec451e684f71f0c6769535f9b3634327912d81fad7af6d750f369"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/vcsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "34d2a0b25fd00df2c5d611203199029f134a296244f5e514a3fc30c7d2ed9176"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/vcsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "b556791a921e5ef09a5ec141d042b9f402e8674d7fef1995aa830f1679ee19d1"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/vcsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "3e23732709c62a259862394494300fbf29e95ee014837e803afb9cb0c40e7d33"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/vcsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "463934a2b5190b148218542dd9395e3059162837d38b0aa6f6a3383b02e06b3b"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,18 +47,10 @@ class Vcsql < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "vcsql"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "vcsql"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "vcsql"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "vcsql"
-    end
+    bin.install "vcsql" if OS.mac? && Hardware::CPU.arm?
+    bin.install "vcsql" if OS.mac? && Hardware::CPU.intel?
+    bin.install "vcsql" if OS.linux? && Hardware::CPU.arm?
+    bin.install "vcsql" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 

@@ -1,35 +1,35 @@
 class Devsql < Formula
   desc "Unified SQL queries across Claude Code + Git data"
   homepage "https://github.com/douglance/devsql"
-  version "0.3.0"
+  version "0.3.2"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/devsql-aarch64-apple-darwin.tar.xz"
-      sha256 "f259f902541d514472eea492da96b372aba88c86ec3c061a4d80c3d935120ecc"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-aarch64-apple-darwin.tar.xz"
+      sha256 "eba771b99a70387b54e93b6580df533bd0f2c8ca086d2a7dc51c7b5b9f65b259"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/devsql-x86_64-apple-darwin.tar.xz"
-      sha256 "6a6204dc804b9fe2c1c226f2f807f7627882598caf3889540e08ad9e50bb4c4a"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-x86_64-apple-darwin.tar.xz"
+      sha256 "b7182a5d81b5a3e5a57aadd30c8fa4aa3befcfdd4a0d1f448f45bbd9827e0ed0"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/devsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "497fa2bac517eb6dfc7abe73cf6ca1430e39e9c7e8dc08dee6b253839f7f04f6"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "775891dba54316dbf06df768231915bc9da3c6e938f225b0a05d69d37e58101d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.0/devsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "7f885cbe1e1ac72e93750fe535ee2679b103333dcb0911e96ebd7c9d22c8b366"
+      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "56175bb4600c0810c091d5c567c3486131717fe8bfa0aeeccb14216eaaf79f8d"
     end
   end
   license "MIT"
 
   BINARY_ALIASES = {
-    "aarch64-apple-darwin": {},
+    "aarch64-apple-darwin":      {},
     "aarch64-unknown-linux-gnu": {},
-    "x86_64-apple-darwin": {},
-    "x86_64-unknown-linux-gnu": {}
-  }
+    "x86_64-apple-darwin":       {},
+    "x86_64-unknown-linux-gnu":  {},
+  }.freeze
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
@@ -47,18 +47,10 @@ class Devsql < Formula
   end
 
   def install
-    if OS.mac? && Hardware::CPU.arm?
-      bin.install "devsql"
-    end
-    if OS.mac? && Hardware::CPU.intel?
-      bin.install "devsql"
-    end
-    if OS.linux? && Hardware::CPU.arm?
-      bin.install "devsql"
-    end
-    if OS.linux? && Hardware::CPU.intel?
-      bin.install "devsql"
-    end
+    bin.install "devsql" if OS.mac? && Hardware::CPU.arm?
+    bin.install "devsql" if OS.mac? && Hardware::CPU.intel?
+    bin.install "devsql" if OS.linux? && Hardware::CPU.arm?
+    bin.install "devsql" if OS.linux? && Hardware::CPU.intel?
 
     install_binary_aliases!
 
