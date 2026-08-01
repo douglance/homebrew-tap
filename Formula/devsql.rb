@@ -1,25 +1,25 @@
 class Devsql < Formula
-  desc "Unified SQL queries across Claude Code + Git data"
+  desc "Code Mode across AI coding history, shell history, Git, source code, and worklogs"
   homepage "https://github.com/douglance/devsql"
-  version "0.3.2"
+  version "0.4.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-aarch64-apple-darwin.tar.xz"
-      sha256 "eba771b99a70387b54e93b6580df533bd0f2c8ca086d2a7dc51c7b5b9f65b259"
+      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-aarch64-apple-darwin.tar.xz"
+      sha256 "3175d445a7dac11e8f5c95e39fa9ae4d119c0bcca56b89c784343d589384ded3"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-x86_64-apple-darwin.tar.xz"
-      sha256 "b7182a5d81b5a3e5a57aadd30c8fa4aa3befcfdd4a0d1f448f45bbd9827e0ed0"
+      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-x86_64-apple-darwin.tar.xz"
+      sha256 "4244830dfb29053c1427be34a012feec596c29b5c9f61fc3c7e524859f34015e"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "775891dba54316dbf06df768231915bc9da3c6e938f225b0a05d69d37e58101d"
+      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "8f3a97f1bc8dac0613bd161f848d8c08038901bc3965c28ebf435ebeb0783979"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.3.2/devsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "56175bb4600c0810c091d5c567c3486131717fe8bfa0aeeccb14216eaaf79f8d"
+      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "ff90b1920e70ae45466f9f26df7aab88e4c52f2204d96e1683a61d3091c0c1b5"
     end
   end
   license "MIT"
