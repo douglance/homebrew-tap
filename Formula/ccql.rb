@@ -1,25 +1,25 @@
 class Ccql < Formula
   desc "Claude Code Query Language - SQL query engine for Claude Code data"
   homepage "https://github.com/douglance/devsql"
-  version "0.4.0"
+  version "0.5.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/ccql-aarch64-apple-darwin.tar.xz"
-      sha256 "a8e99d130ed99ce04c9946847227e5c95f8d24a795a3e3355449e6711c8732f6"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/ccql-aarch64-apple-darwin.tar.xz"
+      sha256 "143e07585f74a93af2c060582dd14e8fa50a40c0820c6d9fcd08abac2fab8ddd"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/ccql-x86_64-apple-darwin.tar.xz"
-      sha256 "e5f9f660e5e6142f73d6eca98284e1e38101cb36abb196154a6505d30e466aa5"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/ccql-x86_64-apple-darwin.tar.xz"
+      sha256 "de80493823e8b01a87c51e6bbd06b5b20ab9f0a93351cbf4f63ce90fb5f926b8"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/ccql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "623fe91722fe36fafb2daf55f7efc0f2ceef30fdc07898a1638f36e8ff95e773"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/ccql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "9d405ccb63939fff878427021d1d2953de6a72796c5964d38a8f99a91606d5b5"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/ccql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "62e8c1e0655913e22ea5426cd7e6fb2e9ac8398e14394f8341e309fe8ff3d5ff"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/ccql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "1625dd76fcb9c684fc3a297f2298956b3ff7e085bfe28e1c9296ee01dca1574a"
     end
   end
   license "MIT"
@@ -47,10 +47,18 @@ class Ccql < Formula
   end
 
   def install
-    bin.install "ccql" if OS.mac? && Hardware::CPU.arm?
-    bin.install "ccql" if OS.mac? && Hardware::CPU.intel?
-    bin.install "ccql" if OS.linux? && Hardware::CPU.arm?
-    bin.install "ccql" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "ccql"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "ccql"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "ccql"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "ccql"
+    end
 
     install_binary_aliases!
 
