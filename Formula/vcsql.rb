@@ -1,25 +1,25 @@
 class Vcsql < Formula
   desc "SQL query engine for Git repository data"
   homepage "https://github.com/douglance/devsql"
-  version "0.4.0"
+  version "0.5.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/vcsql-aarch64-apple-darwin.tar.xz"
-      sha256 "c22f21e15455cf265f3acbb6c7fb493f4189ef95cb7fd5fda7ec097e4ac71b20"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-aarch64-apple-darwin.tar.xz"
+      sha256 "f6a509848312f6e8ef4bbc4ddb3e18c303b1c62a2b08dcddebbf824dcf8a67de"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/vcsql-x86_64-apple-darwin.tar.xz"
-      sha256 "532d9f9fb6e24e2d9f1aeba8429db5366aa43eae846661f40c8298e3406a8ed1"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-x86_64-apple-darwin.tar.xz"
+      sha256 "9b125c57d545746df7777415e0436b24006632f1480d24b4c974c4ee066b8e38"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/vcsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "73a0b00e1f6d55935e1e24fa2e46894db90e6f6faf231af8bdbd78538ce215ac"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "798dfbe011ee4acabe00486ca5d909108f39f5bf8d136d32eb8f9cba40966c0e"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/vcsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "91b42377dfc0398e815c7d639428aa0fa7a227f1a94dc435449f7bbafb75a971"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "01df6f1c422e959eb3f2d2f18435abd0db5a74571d5ed56a8c838436547c231f"
     end
   end
   license "MIT"
@@ -47,10 +47,18 @@ class Vcsql < Formula
   end
 
   def install
-    bin.install "vcsql" if OS.mac? && Hardware::CPU.arm?
-    bin.install "vcsql" if OS.mac? && Hardware::CPU.intel?
-    bin.install "vcsql" if OS.linux? && Hardware::CPU.arm?
-    bin.install "vcsql" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "vcsql"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "vcsql"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "vcsql"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "vcsql"
+    end
 
     install_binary_aliases!
 
