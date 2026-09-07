@@ -1,25 +1,25 @@
 class Devsql < Formula
   desc "Code Mode across AI coding history, shell history, Git, source code, and worklogs"
   homepage "https://github.com/douglance/devsql"
-  version "0.4.0"
+  version "0.5.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-aarch64-apple-darwin.tar.xz"
-      sha256 "3175d445a7dac11e8f5c95e39fa9ae4d119c0bcca56b89c784343d589384ded3"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/devsql-aarch64-apple-darwin.tar.xz"
+      sha256 "806fa60cb86f4ce6e587ed3997deb08f4cc1411871ca24a28f2e0d1fd7960f6a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-x86_64-apple-darwin.tar.xz"
-      sha256 "4244830dfb29053c1427be34a012feec596c29b5c9f61fc3c7e524859f34015e"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/devsql-x86_64-apple-darwin.tar.xz"
+      sha256 "e4600de5e2168ca3dcab051a89b5aa24fdc67c334868566fd994fa1b2db20d88"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "8f3a97f1bc8dac0613bd161f848d8c08038901bc3965c28ebf435ebeb0783979"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/devsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "8b01a94105275b05981a2d660c5fcc6558b1200724eaf940cd4856f14e8fbb61"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.4.0/devsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "ff90b1920e70ae45466f9f26df7aab88e4c52f2204d96e1683a61d3091c0c1b5"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.0/devsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "2d680eb841b4cdfcc27f5190d70c901bf19b14aea3a4221fe61a020ac487427d"
     end
   end
   license "MIT"
@@ -47,10 +47,18 @@ class Devsql < Formula
   end
 
   def install
-    bin.install "devsql" if OS.mac? && Hardware::CPU.arm?
-    bin.install "devsql" if OS.mac? && Hardware::CPU.intel?
-    bin.install "devsql" if OS.linux? && Hardware::CPU.arm?
-    bin.install "devsql" if OS.linux? && Hardware::CPU.intel?
+    if OS.mac? && Hardware::CPU.arm?
+      bin.install "devsql"
+    end
+    if OS.mac? && Hardware::CPU.intel?
+      bin.install "devsql"
+    end
+    if OS.linux? && Hardware::CPU.arm?
+      bin.install "devsql"
+    end
+    if OS.linux? && Hardware::CPU.intel?
+      bin.install "devsql"
+    end
 
     install_binary_aliases!
 
