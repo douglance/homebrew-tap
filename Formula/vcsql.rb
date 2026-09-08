@@ -1,25 +1,25 @@
 class Vcsql < Formula
   desc "SQL query engine for Git repository data"
   homepage "https://github.com/douglance/devsql"
-  version "0.5.0"
+  version "0.5.1"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-aarch64-apple-darwin.tar.xz"
-      sha256 "f6a509848312f6e8ef4bbc4ddb3e18c303b1c62a2b08dcddebbf824dcf8a67de"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.1/vcsql-aarch64-apple-darwin.tar.xz"
+      sha256 "3c95d810fa7c3ef1392f60232a68dbf8d4678ab29cc2d9c22d3777fe8fe0d0e2"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-x86_64-apple-darwin.tar.xz"
-      sha256 "9b125c57d545746df7777415e0436b24006632f1480d24b4c974c4ee066b8e38"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.1/vcsql-x86_64-apple-darwin.tar.xz"
+      sha256 "8a674e5584bb6ff6584bc88c66d9ebc447881281a6880be1a7a743bae44a82d5"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "798dfbe011ee4acabe00486ca5d909108f39f5bf8d136d32eb8f9cba40966c0e"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.1/vcsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "141e5f2c0d0402b11f4b6ee6a2b61582724703eae9b7c76e262ab6ebef8c02fb"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.5.0/vcsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "01df6f1c422e959eb3f2d2f18435abd0db5a74571d5ed56a8c838436547c231f"
+      url "https://github.com/douglance/devsql/releases/download/v0.5.1/vcsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "77845ae98d39996b053366ea29fe1b10a099401a2abb61b326895f79cf4c3470"
     end
   end
   license "MIT"
