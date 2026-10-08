@@ -1,25 +1,25 @@
 class Devsql < Formula
-  desc "Code Mode across AI coding history, shell history, Git, source code, and worklogs"
+  desc "Code Mode across AI coding history, shell history, Git, and source code"
   homepage "https://github.com/douglance/devsql"
-  version "0.6.0"
+  version "0.7.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/devsql-aarch64-apple-darwin.tar.xz"
-      sha256 "ecf69384a4256d70bf82ab5f2ab3892cfdf4c15e7c48124bf25bd5fc91d425ce"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/devsql-aarch64-apple-darwin.tar.xz"
+      sha256 "d5263a71bebb881c9001d8780236a7f6ad38b1322eea0af764c3653e65dfcb7f"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/devsql-x86_64-apple-darwin.tar.xz"
-      sha256 "061be01557b02e89314c02186166c7a4927a5bf331b1735bccc7988ed5fefef1"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/devsql-x86_64-apple-darwin.tar.xz"
+      sha256 "d1bff74a9b85f7377d4761b94daaa01dfecc8306f33d98581c43a79b3accb202"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/devsql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "1078e4020520ef2ae2bec1f2d4c3f9ff5790be0059ea7de1210a75381122ed59"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/devsql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "5676adef2ed1fb4558c277cdf032d9d2297c90f7a29bf51a3691eedc71836937"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/devsql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "160038578144b1de0c5a1cad32d654e3d59ddf779377efcb98974d7fbcfc1a58"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/devsql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "dbfd77f8438dcbca148935d371f760e4f5fdddfe61a0abb310e36d1638d833fb"
     end
   end
   license "MIT"
