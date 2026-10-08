@@ -1,25 +1,25 @@
 class Ccql < Formula
   desc "Claude Code Query Language - SQL query engine for Claude Code data"
   homepage "https://github.com/douglance/devsql"
-  version "0.6.0"
+  version "0.7.0"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/ccql-aarch64-apple-darwin.tar.xz"
-      sha256 "7975d7d5e504e43281afd32125ae582b9c1e1202ed2bfe2097aefaceb9e7c103"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/ccql-aarch64-apple-darwin.tar.xz"
+      sha256 "e3acbc036428b0c88f935ca2cbe4fed3f273b83720884d73931f57f5c3cb1a2a"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/ccql-x86_64-apple-darwin.tar.xz"
-      sha256 "27b34d3b0f4e2d2d62e46ac68614eb1c299998f80f08cd51a78f2132ea8ccba5"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/ccql-x86_64-apple-darwin.tar.xz"
+      sha256 "520954f615c5c18708f964cb99dc7f41e5e076baaeb6f9e8e77f0ab8eb51bf16"
     end
   end
   if OS.linux?
     if Hardware::CPU.arm?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/ccql-aarch64-unknown-linux-gnu.tar.xz"
-      sha256 "92a4616a2b3047fd7d0e136d2641edb8d633a47246b31c080ef8b3e853ea248f"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/ccql-aarch64-unknown-linux-gnu.tar.xz"
+      sha256 "1df2451c1e686354b977fba98447088c14d2b77b7fa51358f41aa5e8d1d99344"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/douglance/devsql/releases/download/v0.6.0/ccql-x86_64-unknown-linux-gnu.tar.xz"
-      sha256 "516a702919013739b49af05b2f0d0608b3c4f2f52638c454fb0cf8748bec1549"
+      url "https://github.com/douglance/devsql/releases/download/v0.7.0/ccql-x86_64-unknown-linux-gnu.tar.xz"
+      sha256 "d4c42c1ed2be7f418d5c623a2a2d7374c11af4c66c057b41fdb4c8461f121d5d"
     end
   end
   license "MIT"
